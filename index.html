@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Native App UI Concept</title>
+<style>
+  :root {
+    --bg: #1c1c1e;
+    --surface: #2c2c2e;
+    --text: #f4f4f5;
+    --dim: #9a9aa0;
+    --accent: #0a84ff;
+  }
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    font-family: system-ui, sans-serif;
+    color: var(--text);
+  }
+  .android-screen {
+    width: 360px;
+    height: 640px;
+    background: var(--bg);
+    border-radius: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .segment-control {
+    display: flex;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 4px;
+  }
+  .segment-control button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--dim);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .segment-control button.active {
+    background: var(--bg);
+    color: var(--text);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .input-group label {
+    font-size: 12px;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    background: var(--surface);
+    border: none;
+    border-radius: 12px;
+    color: var(--text);
+    box-sizing: border-box;
+    outline: none;
+  }
+  .toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .toggle {
+    width: 40px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 12px;
+    position: relative;
+  }
+  .toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .apply-btn {
+    margin-top: auto;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="android-screen">
+  <div class="header">
+    <span>Live Wallpaper</span>
+    <span style="color: var(--accent); font-size: 14px; cursor: pointer;">History</span>
+  </div>
+
+  <div class="segment-control">
+    <button class="active">Web</button>
+    <button>Video</button>
+    <button>HTML</button>
+  </div>
+
+  <div class="input-group">
+    <label>Source URL</label>
+    <input type="text" placeholder="https://example.com">
+  </div>
+
+  <div class="input-group">
+    <label>Scale Mode</label>
+    <select>
+      <option>Center Crop</option>
+      <option>Fit</option>
+      <option>Stretch</option>
+    </select>
+  </div>
+
+  <div class="toggle-row">
+    <span style="font-size: 14px; font-weight: 500;">Pause on Low Battery</span>
+    <div class="toggle"></div>
+  </div>
+
+  <button class="apply-btn">Set Wallpaper</button>
+</div>
+
+</body>
+</html>
